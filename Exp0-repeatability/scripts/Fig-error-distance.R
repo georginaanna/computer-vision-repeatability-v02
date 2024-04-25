@@ -37,7 +37,7 @@ plot(x = NULL,
      ylim = c(1,13),
      xlim = c(0.2, 1.4))
 axis(side = 2, at = 1:13, labels = dist.summ$subject, las = 2)
-mtext(text = 'Subject', side = 2, line = 2.5, cex = 1.3)
+mtext(text = 'Labeller', side = 2, line = 2.5, cex = 1.3)
 mtext(text = '% Mean box placement error (95% CI)', side = 1, line = 2.5, cex = 1.3)
 
 points(x = 100*dist.summ$mean, y = 1:13, cex = 1.5,
@@ -65,7 +65,7 @@ arrows(x0 = 100*mean(dist.summ$mean[11:13]),
        lty=2, lwd = 2)
 legend(x = .2, y = 13,
        title = 'Method',
-       legend = c('live', 'computer'),
+       legend = c('3D', '2D'),
        bty = 'n',
        pch = c(15,15),
        col = c('brown4', 'chartreuse4'), cex = 1.5)
@@ -83,7 +83,7 @@ plot(x = NULL,
      ylim = c(1,13),
      xlim = c(0.2, 1.4))
 axis(side = 2, at = 1:13, labels = dist.summ$subject, las = 2)
-mtext(text = 'Subject', side = 2, line = 2.5, cex = 1.3)
+mtext(text = 'Labeller', side = 2, line = 2.5, cex = 1.3)
 mtext(text = '% Mean box placement error (95% CI)', side = 1, line = 2.5, cex = 1.3)
 
 points(x = 100*dist.summ$mean, y = 1:13, cex = 1.5,
@@ -111,7 +111,7 @@ arrows(x0 = 100*mean(dist.summ$mean[11:13]),
        lty=2, lwd = 2)
 legend(x = .2, y = 13,
        title = 'Method',
-       legend = c('live', 'computer'),
+       legend = c('3D', '2D'),
        bty = 'n',
        pch = c(15,15),
        col = c('brown4', 'chartreuse4'), cex = 1.5)

@@ -41,7 +41,7 @@ liveworst1 <- read.csv('data-detection-stems/live-worst1.csv')
 liveworst2 <- read.csv('data-detection-stems/live-worst2.csv')
 liveworst3 <- read.csv('data-detection-stems/live-worst3.csv')
 
-epochs <- 1:50
+epochs <- 1:100
 
 cols <- c('blue', 'chartreuse4', 'chartreuse3', 'brown4', 'brown1')
 colslong <- rep(cols, each=3)
@@ -49,26 +49,26 @@ colslong <- rep(cols, each=3)
 plotcex <- 2
 
 ## Graph mean avg precision 50 ####
-figname <- 'Fig1-mAP.50-stems'
+figname <- 'Fig1-mAP.50-stems-100'
 source('sim-stems-scripts/graph-results-mAP.5-stems.R')
 
 ## Graph mean avg precision 95 ####
 # Make plot canvas
-figname <- 'Fig2-mAP.95-stems'
+figname <- 'Fig2-mAP.95-stems-100'
 source('sim-stems-scripts/graph-results-mAP.95-stems.R')
 
 ## Graph Recall ####
 # Make plot canvas
-figname <- 'Fig3-recall-stems'
+figname <- 'Fig3-recall-stems-100'
 source('sim-stems-scripts/graph-results-recall-stems.R')
 
 ## Graph Training loss ####
 # Make plot canvas
-figname <- 'Fig4-training-loss-stems'
+figname <- 'Fig4-training-loss-stems-100'
 source('sim-stems-scripts/graph-results-train-loss-stems.R')
 
 ## Graph Validation loss ####
 # Make plot canvas
-figname <- 'Fig5-val-loss-stems'
+figname <- 'Fig5-val-loss-stems-100'
 source('sim-stems-scripts/graph-results-val-loss-stems.R')
 

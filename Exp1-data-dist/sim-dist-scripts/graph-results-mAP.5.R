@@ -53,8 +53,8 @@ for(i in 1:5){
 }
 
 legend(x = 'topleft', bty = 'n',
-       legend = c('Baseline', 'Comp-high', 'Comp-low', 
-                  'Live-high', 'Live-low'),
+       legend = c('Baseline', '2D-high', '2D-low', 
+                  '3D-high', '3D-low'),
        lty = 1,
        col = cols,
        pch = 15,

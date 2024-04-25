@@ -9,12 +9,38 @@
 ## 02 Centre distances
 
 ## 00 Setup ####
+mean1 <- aggregate(boxes$num_stems, list(boxes$method), FUN=mean) 
+
+(11.40/13.41)*11.40
+(13.41-11.4)/11.40
+
+(11.4-13.41)/13.41
 
 # Working dir: open project file 'repeatability.proj'
 
-packages <- c('lme4','lmerTest','ggbiplot','dplyr', 'tictoc',
+packages <- c('lmer', 'lmerTest','ggbiplot','dplyr', 'tictoc',
               'rptR', 'irr') # one way to do repeatability
-lapply(packages, require, character.only = T); rm(packages)
+
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+
+# to remove "Error in initializePtr() : 
+# function 'chm_factor_ldetL2' not provided by package 'Matrix'"
+# install.packages("lme4", type = "source")
+oo <- options(repos = "https://cran.r-project.org/")
+install.packages("Matrix")
+install.packages("lme4")
+options(oo)
+library(Matrix)
+library(lme4)
+library(rptR)
 
 # Make data (takes a few mins to run)
 tic(); source('scripts/centre-data.R'); toc() # make data objects 
@@ -88,12 +114,16 @@ summary(s0)
 # avg repeatability between both methods
 (rept.s0 <- 5.774/(5.774 + 4.331)) 
 
+# the amount of variance that is repeatable between methods 0.5714003
+
 # just LIVE
 s1 <- lmer(num_stems ~  1 + (1 | subject),
            data = stems[stems$method == 'live', ])
+anova(s1)
 summary(s1)
 # avg repeatability for LIVE 
 (rept.s1 <- 1.452/(1.452 +  3.533)) 
+# repeataibility by live 0.29
 
 # just COMPUTER
 s2 <- lmer(num_stems ~  1 + (1 | subject),
@@ -101,7 +131,7 @@ s2 <- lmer(num_stems ~  1 + (1 | subject),
 summary(s2)
 # avg repeatability for COMPUTER
 (rept.s2 <- 6.705/(6.705 + 4.261)) 
-
+# repeataibility by computer 0.6114353
 
 
 
